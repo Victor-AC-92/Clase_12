@@ -1,0 +1,45 @@
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 style="color: blue"> Ingresar datos </h1>
+            <br>
+            <form action="/productos" method="post">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input id="nombre" class="form-control" type="text" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label>Precio</label>
+                    <input id="precio" class="form-control" type="number" name="precio">
+                </div>
+                <div class="form-group">
+                    <label>Url de imagen</label>
+                    <input id="url" class="form-control" type="url" name="url">
+                </div>
+                <button class="btn btn-success mt-3 mb-5">Enviar</button>
+            </form>
+            <div class="table-responsive">
+                {{#if productos}}
+                <table class="table table-dark">
+                <tr style="color: yellow">
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                </tr>
+                {{#each productos}}
+                <tr>
+                    <td style="vertical-align:middle">{{@nombre}}{{nombre}}</td>
+                    <td style="vertical-align:middle">{{@precio}}{{precio}}</td>
+                    <td>
+                        <img src={{@url}}{{url}} height="40px" width="40px"></img>
+                </tr>
+                {{/each}}
+                </table>
+            </div>
+            {{else}}
+            <h3 class="alert alert-danger"> No se encontraron datos </h3>
+            {{/if}}
+        </div>
+    
+</body>
+</html>
