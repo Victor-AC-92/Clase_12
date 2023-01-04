@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
-const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const http = require('http')
+const server = http.createServer(app)
+const {Server} = require('socket.io')
+const io = new Server(server)
 const {engine} = require('express-handlebars')
 
 
@@ -37,7 +39,7 @@ app.get('/', (req, res) => {
     res.render('formulario', {productos})
 })
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
     console.log('Un cliente se ha conectado');
     socket.emit('messages', messages);
 

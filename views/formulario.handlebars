@@ -40,6 +40,13 @@
             <h3 class="alert alert-danger"> No se encontraron datos </h3>
             {{/if}}
         </div>
-    
+    </div>
+    <h1>Mi app chat</h1>
+    <form onsubmit="return addMessage(this)">
+        <input type="text" id="email" placeholder="Ingresa tu email">
+        <input type="text" id="texto" placeholder="Mensaje aquí">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="messages"></div>
 </body>
 </html>
