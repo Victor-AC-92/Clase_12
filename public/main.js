@@ -9,7 +9,7 @@ function renderizar(data) {
     let html = data.map((elem, index) => {
         return (`<div>
         <strong style="color: blue">${elem.author}</strong>
-        <label style="color: brown">${elem.date}: </label>
+        <label style="color: brown">${elem.time}: </label>
         <em style="color: green">${elem.text}</em>
         </div>
         `)
@@ -18,11 +18,11 @@ function renderizar(data) {
 }
 
 function addMessage(e) {
-    let date = new Date().toLocaleString
+    
 
     let message = {
         author: document.getElementById('email').value,
-        messageDate: date,
+        time: new Date(),
         text: document.getElementById('texto').value
     }
 
@@ -30,10 +30,6 @@ function addMessage(e) {
 
     document.getElementById('email').value = ""
     document.getElementById('texto').value = ""
-
-    fs.promises.appendFile('Entregas\Clase_12\public\logMensajes.txt', JSON.stringify(message, ',', 2))
-                    .then(() => console.log(`Mensaje guardado`))
-                    .catch( error => console.log(error))
 
     return false;
 }

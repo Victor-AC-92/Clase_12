@@ -16,7 +16,7 @@ class Producto {
 
 let productos = []
 let messages = [
-    {author: "Juan", text: "Hola!"}
+    {author: "Juan", messageDate: new Date() ,text: "Hola!"}
 ]
 
 //Configuracion Handlebars
@@ -26,7 +26,7 @@ app.set('views', './views')
 app.set('view engine', 'handlebars')
 
 
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 app.post('/productos', (req, res) => {
     productos.push(req.body)
@@ -45,6 +45,9 @@ io.on('connection', (socket) => {
     socket.on('new-message', data => {
         messages.push(data);
         io.sockets.emit('messages', messages);
+        fs.promises.writeFile('public/logMensajes.txt', JSON.stringify(messages, ',', 2))
+                    .then(() => console.log(`Mensaje guardado`))
+                    .catch( error => console.log(error))
     });
 });
 

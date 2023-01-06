@@ -1,0 +1,12 @@
+[
+  {
+    "author": "Juan",
+    "messageDate": "2023-01-06T23:34:57.777Z",
+    "text": "Hola!"
+  },
+  {
+    "author": "victorac92@hotmail.com",
+    "time": "2023-01-06T23:35:35.678Z",
+    "text": "Hola!"
+  }
+]
