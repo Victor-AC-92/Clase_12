@@ -16,7 +16,7 @@ class Producto {
 
 let productos = []
 let messages = [
-    {author: "Juan", messageDate: new Date() ,text: "Hola!"}
+    {author: "Juan", time: new Date() ,text: "Hola!"}
 ]
 
 //Configuracion Handlebars
